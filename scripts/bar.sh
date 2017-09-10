@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-main() {
+add_rw_mark() {
+  printf "#{?client_readonly,#[bg=#882222] R ,#[fg=#fbf4c1,bg=#115511] RW }"
+}
+
+add_sessions_list() {
   tmux list-sessions -F "#{session_name}:#{session_attached}" | \
   while read line; do
     attached=${line##*:};
@@ -12,6 +16,11 @@ main() {
       printf "#[fg=#fbf4c1,bg=default] ${line} ";
     fi;
   done
+}
+
+main() {
+  add_sessions_list
+  add_rw_mark
 }
 
 main
