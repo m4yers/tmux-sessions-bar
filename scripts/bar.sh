@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 add_rw_mark() {
-  printf "#{?client_readonly,#[bg=#882222] R ,#[fg=#fbf4c1,bg=#115511] RW }"
+  printf "#{?client_readonly,#[bg=colour9] R ,#[fg=colour0,bg=colour10] RW }"
 }
 
 add_sessions_list() {
@@ -11,9 +11,9 @@ add_sessions_list() {
     line=${line/$/};
     line=${line%%:*};
     if [[ "${attached}" == "1" ]]; then
-      printf "#[fg=#fbf4c1,bg=#882222] ${line} ";
+      printf "#[fg=colour0,bg=colour12] ${line} ";
     else
-      printf "#[fg=#fbf4c1,bg=default] ${line} ";
+      printf "#[fg=colour8,bg=colour0] ${line} ";
     fi;
   done
 }
